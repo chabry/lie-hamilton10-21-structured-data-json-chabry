@@ -81,13 +81,23 @@ describe('JavaScript Data Structures - Structured Data JSON', () => {
     expect(countAttributes(sampleJSON)).toBe(3);
   });
 
+  var sampleJSON2 = {
+    people: [
+      { name: 'Alice', age: 30 },
+      { name: 'Bob', age: 25 },
+      { name: 'Charlie', age: 35 },
+    ],
+    city: 'New York',
+    year: 2023,
+  };
+
   test('findNestedValue should find and return the value at the given nested path', () => {
-    expect(findNestedValue(sampleJSON, 'people[0].name')).toBe('Alice');
-    expect(findNestedValue(sampleJSON, 'city')).toBe('New York');
+    expect(findNestedValue(sampleJSON2, 'people[0].name')).toBe('Alice');
+    expect(findNestedValue(sampleJSON2, 'city')).toBe('New York');
   });
 
   test('flattenJSON should flatten the JSON object into a single-level object', () => {
-    const flattened = flattenJSON(sampleJSON);
+    const flattened = flattenJSON(sampleJSON2);
     expect(flattened).toEqual({
       'people[0].name': 'Alice',
       'people[0].age': 30,
