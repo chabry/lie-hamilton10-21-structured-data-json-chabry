@@ -114,7 +114,7 @@ function flattenJSON(obj) {
       // Si c'est un tableau, parcourt chaque élément du tableau
       obj[key].forEach((element, index) => {
         // Vérifie si l'élément du tableau est un objet
-        if(typeof element === 'object' && value !== null){
+        if(typeof element === 'object' && element !== null){
           // Si l'élément est un objet, aplatir ses propriétés et les ajouter au résultat
           for(let subKey in element) {
             // Ajouter l'élément aplati à l'objet résultat
